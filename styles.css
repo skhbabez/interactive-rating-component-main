@@ -1,0 +1,211 @@
+@layer reset, defaults, components, utilities;
+
+@layer reset {
+  *,
+  ::before,
+  ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  img {
+    display: block;
+    max-inline-size: 100%;
+  }
+
+  fieldset {
+    border: none;
+  }
+}
+
+@layer defaults {
+  @font-face {
+    font-family: "Overpass";
+    font-style: normal;
+    src: local("Overpass"),
+      url("fonts/Overpass-VariableFont_wght.ttf") format("truetype");
+  }
+
+  :root {
+    --font-base: "Overpass", sans-serif;
+    --white: hsl(0, 100%, 100%);
+    --black: hsl(0, 0%, 0%);
+    --grey-500: hsl(217, 12%, 63%);
+    --grey-900: hsl(213, 19%, 18%);
+    --grey-950: hsl(216, 12%, 8%);
+    --orange-500: hsl(25, 97%, 53%);
+    --gradient-1: radial-gradient(#232a34, #181e27);
+    --font-14-15: clamp(0.875rem, 0.8154rem + 0.2545vw, 0.9375rem);
+    --font-14-16: clamp(0.875rem, 0.7557rem + 0.5089vw, 1rem);
+    --font-24-28: clamp(1.5rem, 1.2615rem + 1.0178vw, 1.75rem);
+    --font-14: 14px;
+    --font-weight-bold: 700;
+    --font-weight-semibold: 600;
+    --font-weight-regular: 400;
+    --spacing-16-24: clamp(1rem, 0.5229rem + 2.0356vw, 1.5rem);
+    --spacing-16: 1rem;
+    --spacing-24-32: clamp(1.5rem, 1.0229rem + 2.0356vw, 2rem);
+    --spacing-24: 1.5rem;
+  }
+
+  body {
+    font-family: var(--font-base);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-14-15);
+    line-height: 1.6;
+    background-color: var(--grey-950);
+    height: 100dvh;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+
+  h1,
+  h2 {
+    line-height: 1.25;
+    font-weight: var(--font-weight-bold);
+  }
+}
+
+@layer components {
+  .rating-card {
+    background: var(--gradient-1);
+    border-radius: 30px;
+    padding-inline: var(--spacing-24);
+    padding-block: var(--spacing-24-32);
+    max-inline-size: 412px;
+    inline-size: min-content;
+    --icon-radius: clamp(2.5rem, 2.0229rem + 2.0356vw, 3rem);
+
+    &::before {
+      content: "";
+      inline-size: var(--icon-radius);
+      block-size: var(--icon-radius);
+      border-radius: 50%;
+
+      background: url("images/icon-star.svg") no-repeat center/35%,
+        var(--grey-900);
+      display: block;
+    }
+  }
+
+  .rating-group {
+    display: flex;
+    gap: var(--spacing-16-24);
+  }
+
+  .btn-rating {
+    --btn-rating-radius: clamp(2.625rem, 2.0883rem + 2.2901vw, 3.1875rem);
+
+    & input {
+      appearance: none;
+      position: absolute;
+    }
+    & label {
+      inline-size: var(--btn-rating-radius);
+      block-size: var(--btn-rating-radius);
+      background-color: var(--grey-900);
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 100ms ease-in-out;
+      line-height: 1;
+    }
+    & input:is(:focus-visible, :focus, :hover) + label {
+      background-color: var(--white);
+      color: var(--grey-900);
+    }
+    & input:checked + label {
+      background-color: var(--orange-500);
+      color: var(--grey-900);
+    }
+  }
+
+  .btn-primary {
+    font-size: var(--font-14);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.28;
+    border-radius: 22.5px;
+    inline-size: 100%;
+    background-color: var(--orange-500);
+    text-transform: uppercase;
+    letter-spacing: 1.87px;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    &:is(:hover, :focus-visible, :focus) {
+      background-color: var(--white);
+    }
+
+    @media (min-width: 768px) {
+      font-weight: var(--font-weight-semibold);
+    }
+  }
+}
+
+@layer utilities {
+  .mt-16 {
+    margin-block-start: var(--spacing-16);
+  }
+  .mt-16-r {
+    margin-block-start: var(--spacing-16-24);
+  }
+
+  .mt-24-r {
+    margin-block-start: var(--spacing-24-32);
+  }
+
+  .hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+  }
+
+  .font-bold {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .font-semibold {
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .font-regular {
+    font-weight: var(--font-weight-regular);
+  }
+
+  .font-l {
+    font-size: var(--font-24-28);
+  }
+  .font-m {
+    font-size: var(--font-14-16);
+  }
+  .font-sm {
+    font-size: var(--font-14-15);
+  }
+
+  .font-s {
+    font-size: var(--font-14);
+  }
+
+  .white {
+    color: var(--white);
+  }
+
+  .grey-500 {
+    color: var(--grey-500);
+  }
+
+  .grey-900 {
+    color: var(--grey-900);
+  }
+  .grey-950 {
+    color: var(--grey-950);
+  }
+}

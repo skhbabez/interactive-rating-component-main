@@ -17,18 +17,22 @@
     />
 
     <title>Frontend Mentor | Interactive rating component</title>
+    <link rel="stylesheet" href="styles.css" />
     <script defer src="main.js"></script>
   </head>
   <body>
     <template id="rating-card-template">
-      <article>
-        <h1>How did we do?</h1>
-        <p>
+      <form class="rating-card grey-500" aria-labelledby="rating-title">
+        <h1 class="font-l white mt-24-r" id="rating-title">How did we do?</h1>
+        <p class="grey-500 font-sm mt-16">
           Please let us know how we did with your support request. All feedback
           is appreciated to help us improve our offering!
         </p>
-        <form>
-          <fieldset>
+        <fieldset class="font-m mt-16 rating-group">
+          <legend class="hidden">
+            Rate our support from 1 star to 5 stars
+          </legend>
+          <div class="btn-rating">
             <input
               id="rating-1"
               type="radio"
@@ -37,22 +41,32 @@
               required
             />
             <label for="rating-1">1</label>
+          </div>
 
+          <div class="btn-rating">
             <input id="rating-2" type="radio" name="rating" value="2" />
             <label for="rating-2">2</label>
+          </div>
 
+          <div class="btn-rating">
             <input id="rating-3" type="radio" name="rating" value="3" />
             <label for="rating-3">3</label>
+          </div>
 
+          <div class="btn-rating">
             <input id="rating-4" type="radio" name="rating" value="4" />
             <label for="rating-4">4</label>
+          </div>
 
+          <div class="btn-rating">
             <input id="rating-5" type="radio" name="rating" value="5" checked />
             <label for="rating-5">5</label>
-          </fieldset>
-          <button type="submit">submit</button>
-        </form>
-      </article>
+          </div>
+        </fieldset>
+        <button class="grey-950 btn-primary mt-24-r" type="submit">
+          submit
+        </button>
+      </form>
     </template>
 
     <template id="response-card-template">
