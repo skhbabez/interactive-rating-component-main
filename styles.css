@@ -75,6 +75,7 @@
     padding-inline: var(--spacing-24);
     padding-block: var(--spacing-24-32);
     max-inline-size: 412px;
+    min-inline-size: 327px;
     inline-size: min-content;
     --icon-radius: clamp(2.5rem, 2.0229rem + 2.0356vw, 3rem);
 
