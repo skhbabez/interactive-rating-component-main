@@ -137,6 +137,7 @@
     padding: 1rem;
     border: none;
     outline: none;
+    transition: all 100ms ease-in-out;
     &:is(:hover, :focus-visible, :focus) {
       background-color: var(--white);
     }
