@@ -113,7 +113,8 @@
       align-items: center;
       justify-content: center;
       transition: all 100ms ease-in-out;
-      line-height: 1;
+      line-height: 0;
+      font-weight: var(--font-weight-bold);
     }
     & input:is(:focus-visible, :focus, :hover) + label {
       background-color: var(--white);
@@ -128,6 +129,7 @@
   .btn-primary {
     font-size: var(--font-14);
     font-weight: var(--font-weight-bold);
+    font-family: inherit;
     line-height: 1.28;
     border-radius: 22.5px;
     inline-size: 100%;
