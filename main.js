@@ -1,5 +1,7 @@
-const ratingTemplate = document.getElementById("rating-card").content;
-const responseTemplate = document.getElementById("response-card").content;
+const ratingTemplate = document.getElementById("rating-card-template").content;
+const responseTemplate = document.getElementById(
+  "response-card-template"
+).content;
 const ratingCard = ratingTemplate.cloneNode(true);
 const main = document.body.querySelector("main");
 const form = ratingCard.querySelector("form");
