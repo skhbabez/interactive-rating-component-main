@@ -15,4 +15,4 @@ form.addEventListener("submit", (event) => {
   main.appendChild(responseCard);
 });
 
-document.body.querySelector("main").appendChild(ratingCard);
+main.appendChild(ratingCard);
