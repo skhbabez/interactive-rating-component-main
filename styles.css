@@ -29,6 +29,7 @@
 
   :root {
     --font-base: "Overpass", sans-serif;
+
     --white: hsl(0, 100%, 100%);
     --black: hsl(0, 0%, 0%);
     --grey-500: hsl(217, 12%, 63%);
@@ -43,10 +44,13 @@
     --font-weight-bold: 700;
     --font-weight-semibold: 600;
     --font-weight-regular: 400;
-    --spacing-16-24: clamp(1rem, 0.5229rem + 2.0356vw, 1.5rem);
+    --spacing-4: 0.25rem;
     --spacing-16: 1rem;
-    --spacing-24-32: clamp(1.5rem, 1.0229rem + 2.0356vw, 2rem);
     --spacing-24: 1.5rem;
+    --spacing-16-24: clamp(1rem, 0.5229rem + 2.0356vw, 1.5rem);
+    --spacing-24-32: clamp(1.5rem, 1.0229rem + 2.0356vw, 2rem);
+    --spacing-32-40: clamp(2rem, 1.5229rem + 2.0356vw, 2.5rem);
+    --border-15-30: clamp(0.9375rem, 0.0429rem + 3.8168vw, 1.875rem);
   }
 
   body {
@@ -59,6 +63,7 @@
     display: grid;
     justify-items: center;
     align-items: center;
+    padding-inline: var(--spacing-24);
   }
 
   h1,
@@ -69,13 +74,17 @@
 }
 
 @layer components {
-  .rating-card {
-    background: var(--gradient-1);
-    border-radius: 30px;
-    padding-inline: var(--spacing-24);
-    padding-block: var(--spacing-24-32);
+  .rating-card,
+  .response-card {
     max-inline-size: 412px;
     min-inline-size: 327px;
+    background: var(--gradient-1);
+    border-radius: var(--border-15-30);
+  }
+
+  .rating-card {
+    padding-inline: var(--spacing-24);
+    padding-block: var(--spacing-24-32);
     inline-size: min-content;
     --icon-radius: clamp(2.5rem, 2.0229rem + 2.0356vw, 3rem);
 
@@ -84,7 +93,6 @@
       inline-size: var(--icon-radius);
       block-size: var(--icon-radius);
       border-radius: 50%;
-
       background: url("images/icon-star.svg") no-repeat center/35%,
         var(--grey-900);
       display: block;
@@ -108,12 +116,11 @@
       block-size: var(--btn-rating-radius);
       background-color: var(--grey-900);
       border-radius: 50%;
-      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 100ms ease-in-out;
-      line-height: 0;
+      padding-top: var(--spacing-4);
       font-weight: var(--font-weight-bold);
     }
     & input:is(:focus-visible, :focus, :hover) + label {
@@ -136,7 +143,7 @@
     background-color: var(--orange-500);
     text-transform: uppercase;
     letter-spacing: 1.87px;
-    padding: 1rem;
+    padding: var(--spacing-16);
     border: none;
     outline: none;
     transition: all 100ms ease-in-out;
@@ -146,6 +153,32 @@
 
     @media (min-width: 768px) {
       font-weight: var(--font-weight-semibold);
+    }
+  }
+
+  .response-card {
+    text-align: center;
+    padding-inline: var(--spacing-24-32);
+    padding-block: var(--spacing-32-40);
+    --icon-width: clamp(9rem, 7.9265rem + 4.5802vw, 10.125rem);
+    inline-size: fit-content;
+    &::before {
+      content: "";
+      inline-size: var(--icon-width);
+      background: url("images/illustration-thank-you.svg") no-repeat;
+      margin: 0 auto;
+      aspect-ratio: 3 / 2;
+      background-size: contain;
+      display: block;
+    }
+    & p:first-of-type {
+      background-color: var(--grey-900);
+      border-radius: 22.5px;
+      inline-size: fit-content;
+      margin: 0 auto;
+      padding: var(--spacing-16);
+      line-height: 0;
+      padding-top: calc(var(--spacing-16) + var(--spacing-4));
     }
   }
 }
@@ -211,5 +244,9 @@
   }
   .grey-950 {
     color: var(--grey-950);
+  }
+
+  .orange-500 {
+    color: var(--orange-500);
   }
 }

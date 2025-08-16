@@ -21,13 +21,13 @@
   </head>
   <body>
     <template id="rating-card-template">
-      <form class="rating-card grey-500" aria-labelledby="rating-title">
+      <form class="rating-card" aria-labelledby="rating-title">
         <h1 class="font-l white mt-24-r" id="rating-title">How did we do?</h1>
         <p class="grey-500 font-sm mt-16">
           Please let us know how we did with your support request. All feedback
           is appreciated to help us improve our offering!
         </p>
-        <fieldset class="font-m mt-16 rating-group">
+        <fieldset class="font-m mt-16 rating-group grey-500">
           <legend class="hidden">
             Rate our support from 1 star to 5 stars
           </legend>
@@ -67,17 +67,17 @@
         </button>
       </form>
     </template>
-
     <template id="response-card-template">
-      <article>
-        <p>You selected <span></span> out of 5</p>
-        <h2>Thank you!</h2>
-        <p>
+      <article class="response-card">
+        <p class="font-sm orange-500 mt-24-r">
+          You selected <span></span> out of 5
+        </p>
+        <h2 class="font-l white mt-24-r">Thank you!</h2>
+        <p class="grey-500 font-sm mt-16">
           We appreciate you taking the time to give a rating. If you ever need
           more support, don’t hesitate to get in touch!
         </p>
       </article>
     </template>
-    <main></main>
   </body>
 </html>
