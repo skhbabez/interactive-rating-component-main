@@ -5,7 +5,10 @@ const responseTemplate = document.getElementById(
 ).content;
 const ratingCard = ratingTemplate.cloneNode(true);
 const main = document.createElement("main");
+main.setAttribute("aria-live", "polite");
+main.setAttribute("aria-atomic", "true");
 document.body.appendChild(main);
+
 const form = ratingCard.querySelector("form");
 
 form.addEventListener("submit", (event) => {
